@@ -1,0 +1,31 @@
+Running Linux Commands from Python (subprocess)
+----------------------------------------------------------------------------------------------
+- In real DevOps automation, Python scripts often need to run Linux commands like:
+
+- df -h → check disk
+
+- kubectl get pods
+
+- terraform apply
+
+- docker ps
+
+- systemctl restart nginx
+
+- Python can execute these commands using a module called subprocess.
+------------------------------------------------------------------------------------------------
+
+1️⃣ Why subprocess is Needed
+
+Imagine a script that:
+
+1️⃣ Checks EC2 instances using boto3
+2️⃣ Runs disk check on server
+3️⃣ Generates report
+
+So Python needs to run commands like:
+
+df -h
+uptime
+free -m
+-------------------------------------------------------------------------------------------------

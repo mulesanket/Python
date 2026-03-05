@@ -1,17 +1,15 @@
-# num = 10
-#
-# for i in range (0, num):
-#     print("numbers are", i)
-#
-# tup = ("one", "two", "three")
-# for element in tup:
-#     print(element)
-#
-# li = ["geeks", "for", "geeks", "fine"]
-# print(li[4])
 
-num = 100
+for i in range (5):
+    if i == 2:
+        print("Hello World")
+        break
+    else:
+        print("No World")
 
-for num in range(2, num):
-    if num % 2 == 0:
-        print("even number is", num)
+servers = ["server1", "server2", "server3"]
+servers.append("server4")
+for server in servers:
+    print("Checking server", server)
+
+
+print (servers)
