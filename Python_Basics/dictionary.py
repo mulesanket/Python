@@ -11,4 +11,5 @@ server = {
     "environment": "prod",
     "status": "running"
 }
-print(server["ip"])
+server["instance_type"] = "t3.micro"
+print(server)
