@@ -1,27 +1,21 @@
 import boto3
 
-regions = ["us-east-1", "eu-west-2", "eu-west-1"]
+region_list = ["eu-west-2", "eu-west-1", "us-east-1"]
 
-for region in regions:
-
-    print("\nRegion:", region)
-
-    config = boto3.client("config", region_name=region)
-
-    # Configuration Recorder Status
+for region in region_list:
+    print("REGION: ", region)
+    config = boto3.client('config', region_name=region)
     recorders = config.describe_configuration_recorder_status()
 
-    for recorder in recorders["ConfigurationRecordersStatus"]:
-        print("Recorder Name:", recorder["name"])
-        print("Running:", recorder["recording"])
+    for record in recorders["ConfigurationRecordersStatus"]:
+        print("Name: ", record["name"])
+        print("is Recording: ", record["recording"])
+        print("Status: ", record["lastStatus"])
+    print("------------------------------------------------")
 
-    # Delivery Channel Status
-    channels = config.describe_delivery_channel_status()
-
-    for channel in channels["DeliveryChannelsStatus"]:
-        print("Delivery Channel Name:", channel["name"])
-
-        delivery_info = channel.get("configSnapshotDeliveryInfo", {})
-        status = delivery_info.get("lastStatus", "No Status")
-
-        print("Delivery Status:", status)
+# channels = config.describe_delivery_channels()
+#
+# for channel in channels["DeliveryChannels"]:
+#     print("Name: ", channel["name"])
+#     print("Name: ", channel["configSnapshotDeliveryProperties"]["deliveryFrequency"])
+# print("------------------------------------------------")
